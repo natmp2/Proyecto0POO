@@ -17,4 +17,38 @@ public Cliente(String nombre, String email) {
         
     }
 
+    public static int getConsecutivo() {
+        return consecutivo;
+    }
+
+    public static void setConsecutivo(int consecutivo) {
+        Cliente.consecutivo = consecutivo;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+
+
 }
