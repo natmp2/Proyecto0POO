@@ -31,12 +31,12 @@ public class Main {
         // Imprimir los clientes después de la modificación
         cliente.imprimirClientes();
 
-        // Probar consulta de un cliente
+        // Probar consultar un cliente
         System.out.println("\nIngrese el número del cliente que desea consultar:");
         int numeroConsultar = scanner.nextInt();
         cliente.consultarCliente(numeroConsultar);
 
-        // Probar eliminación de un cliente
+        // Probar borrar de un cliente
         System.out.println("\nIngrese el número del cliente que desea borrar:");
         int numeroBorrar = scanner.nextInt();
         cliente.borrarCliente(numeroBorrar);
