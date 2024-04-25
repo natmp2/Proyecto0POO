@@ -1,46 +1,56 @@
-
-package itcr.barbero;
+package itcr.proyecto0poo;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.time.DayOfWeek;
+import java.util.HashMap;
+import java.util.Map;
 
-public class HorarioAtencion implements Serializable{
-    private LocalDate fecha;
-    private int horaApertura;
-    private int horaCierre;
+public class HorarioAtencion implements Serializable {
+    private Map<DayOfWeek, HorarioDiario> horarioSemanal;
 
-public HorarioAtencion(LocalDate fecha, int horaApertura, int horaCierre){
-    this.fecha = LocalDate.now();
-    this.horaApertura = horaApertura;
-    this.horaCierre = horaCierre; 
-}
-
-    public LocalDate getFecha() {
-        return fecha;
+    public HorarioAtencion() {
+        this.horarioSemanal = new HashMap<>();
+        // inicializar el horario para cada día de la semana
+        for (DayOfWeek day : DayOfWeek.values()) {
+            this.horarioSemanal.put(day, new HorarioDiario());
+        }
     }
 
-    public void setFecha(LocalDate fecha) {
-        this.fecha = fecha;
+    // métodos para establecer el horario de atención para un día específico (trabaja con hora militar)
+    public void establecerHorario(DayOfWeek dia, int horaApertura, int horaCierre) {
+        HorarioDiario horario = this.horarioSemanal.get(dia);
+        horario.setHoraApertura(horaApertura);
+        horario.setHoraCierre(horaCierre);
+        this.horarioSemanal.put(dia, horario);
     }
 
-    public int getHoraApertura() {
-        return horaApertura;
+    public int getHoraApertura(DayOfWeek dia) {
+        return this.horarioSemanal.get(dia).getHoraApertura();
     }
 
-    public void setHoraApertura(int horaApertura) {
-        this.horaApertura = horaApertura;
+    public int getHoraCierre(DayOfWeek dia) {
+        return this.horarioSemanal.get(dia).getHoraCierre();
     }
 
-    public int getHoraCierre() {
-        return horaCierre;
-    }
+    // clase interna para representar el horario diario
+    private static class HorarioDiario implements Serializable {
+        private int horaApertura;
+        private int horaCierre;
 
-    public void setHoraCierre(int horaCierre) {
-        this.horaCierre = horaCierre;
-    }
-    
+        public int getHoraApertura() {
+            return horaApertura;
+        }
 
-    
-    
-    
+        public void setHoraApertura(int horaApertura) {
+            this.horaApertura = horaApertura;
+        }
+
+        public int getHoraCierre() {
+            return horaCierre;
+        }
+
+        public void setHoraCierre(int horaCierre) {
+            this.horaCierre = horaCierre;
+        }
+    }
 }
