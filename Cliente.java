@@ -207,15 +207,9 @@ public Cliente(String nombre, String email) {
         this.telefono = telefono;
     }
     
-    // Método para imprimir la lista de clientes (solo para pruebas, quitar al implementar interfaz)
-    public void imprimirClientes() {
-        System.out.println("Lista de clientes:");
-        for (Cliente cliente : listaClientes) {
-            System.out.println("Número: " + cliente.getNumero());
-            System.out.println("Nombre: " + cliente.getNombre());
-            System.out.println("Email: " + cliente.getEmail());
-            System.out.println("Teléfono: " + cliente.getTelefono());
-            System.out.println("------------------------------------");
-        }
+    @Override
+    public String toString() {
+        return "Nombre: " + this.nombre + ", Email: " + this.email + ", Teléfono: " + this.telefono;
     }
+
 }
