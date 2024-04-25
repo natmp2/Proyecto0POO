@@ -1,49 +1,61 @@
 package itcr.proyecto0poo;
 
-import java.util.Scanner;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
-// prueba Clase "Cliente"
 public class Main {
+    // pruebas metodos horarios, cita y servicios
     public static void main(String[] args) {
-        // Crear una instancia de Cliente
-        Cliente cliente = new Cliente();
+        // Crear una instancia de HorarioAtencion
+        HorarioAtencion horario = new HorarioAtencion();
+
+        // Establecer horarios de atención para diferentes días de la semana
+        horario.establecerHorario(DayOfWeek.MONDAY, 8, 17);
+        horario.establecerHorario(DayOfWeek.TUESDAY, 9, 18);
+        horario.establecerHorario(DayOfWeek.WEDNESDAY, 9, 18);
+        horario.establecerHorario(DayOfWeek.THURSDAY, 8, 16);
+        horario.establecerHorario(DayOfWeek.FRIDAY, 8, 16);
+
+        // Consultar los horarios de atención para algunos días de la semana
+        System.out.println("Horario de atención para el lunes:");
+        System.out.println("Apertura: " + horario.getHoraApertura(DayOfWeek.MONDAY));
+        System.out.println("Cierre: " + horario.getHoraCierre(DayOfWeek.MONDAY));
+
+        System.out.println("\nHorario de atención para el viernes:");
+        System.out.println("Apertura: " + horario.getHoraApertura(DayOfWeek.FRIDAY));
+        System.out.println("Cierre: " + horario.getHoraCierre(DayOfWeek.FRIDAY));
+        // Creamos algunos servicios
+        Servicio.crearServicio("Corte de cabello");
+        Servicio.crearServicio("Manicura");
+        Servicio.crearServicio("Pedicura");
+
+        // Mostrar los servicios creados
+        System.out.println("Servicios creados:");
+        for (Servicio servicio : Servicio.listaServicios) {
+            System.out.println("Número: " + servicio.getNumero() + ", Nombre: " + servicio.getNombre());
+        }
+
+        // Consultar un servicio
+        System.out.println("\nConsultar servicio:");
+        Servicio.consultarServicio(1); // Consultar el primer servicio creado
+
+        // Creamos un cliente
+        Cliente cliente1 = new Cliente();
+        cliente1.crearCliente("Juan Pérez", "juan@example.com", "8888-8888");
+        cliente1.consultarCliente(1);
         
-        // Probar creación de clientes
-        cliente.crearCliente("Nathaniel Motykiewicz", "natmp@hotmail.com", "8682-2817");
-        cliente.crearCliente("Felipe Benavides", "felibs@gmail.com", "84448426");
 
-        // Imprimir los clientes actuales
-        cliente.imprimirClientes();
 
-        // Probar modificación de un cliente
-        System.out.println("\nIngrese el número del cliente que desea modificar:");
-        Scanner scanner = new Scanner(System.in);
-        int numeroModificar = scanner.nextInt();
-        scanner.nextLine();  // Limpiar el buffer del scanner
-        System.out.println("\nIngrese el nuevo nombre del cliente:");
-        String nuevoNombre = scanner.nextLine();
-        System.out.println("Ingrese el nuevo email del cliente:");
-        String nuevoEmail = scanner.nextLine();
-        System.out.println("Ingrese el nuevo teléfono del cliente:");
-        String nuevoTelefono = scanner.nextLine();
-        cliente.modificarCliente(numeroModificar, nuevoNombre, nuevoEmail, nuevoTelefono);
-
-        // Imprimir los clientes después de la modificación
-        cliente.imprimirClientes();
-
-        // Probar consultar un cliente
-        System.out.println("\nIngrese el número del cliente que desea consultar:");
-        int numeroConsultar = scanner.nextInt();
-        cliente.consultarCliente(numeroConsultar);
-
-        // Probar borrar de un cliente
-        System.out.println("\nIngrese el número del cliente que desea borrar:");
-        int numeroBorrar = scanner.nextInt();
-        cliente.borrarCliente(numeroBorrar);
-
-        // Imprimir los clientes después de borrar
-        cliente.imprimirClientes();
+        // Creamos una lista de citas
+        List<Cita> citas = new ArrayList<>();
+        LocalDate fechaCita = LocalDate.of(2024, 4, 30);
+        int horaCita = 10;
+        Servicio servicioCita = Servicio.listaServicios.get(0); // Tomamos el primer servicio de la lista
+        Cita cita1 = new Cita(fechaCita, horaCita, servicioCita, false, cliente1);
+        cita1.crearCita(fechaCita, horaCita, cliente1, servicioCita, citas);
+        cita1.consultarCita();
     }
+
 }
-
-
