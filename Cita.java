@@ -49,7 +49,6 @@ public class Cita implements Serializable {
         return true;
     }
 
-    
     public boolean modificarCita(int nuevaHora, LocalDate nuevaFecha, Servicio nuevoServicio) {
         // Verificar si la nueva fecha y hora están dentro del horario de atención
         if (!esDiaLaboral(nuevaFecha) || !esHoraValida(nuevaHora)) {
@@ -64,6 +63,15 @@ public class Cita implements Serializable {
         return true;
     }
     
+    public void consultarCita() {
+        System.out.println("Información de la cita:");
+        System.out.println("Fecha: " + fecha);
+        System.out.println("Hora: " + hora);
+        System.out.println("Cliente: " + cliente); 
+        System.out.println("Servicio: " + servicio);
+        System.out.println("Confirmación: " + (confirmacion ? "Confirmada" : "Pendiente")); // el ? es para evaluar booleanos
+    }
+    
     public void borrarCita() {
         // eliminar la referencia a la cita, dejamos que el recolector de basura de Java se encargue de liberar la memoria
         this.fecha = null;
@@ -71,16 +79,6 @@ public class Cita implements Serializable {
         this.cliente = null;
         this.servicio = null;
     }
-    
-    public void consultarCita() {
-        System.out.println("Información de la cita:");
-        System.out.println("Fecha: " + fecha);
-        System.out.println("Hora: " + hora);
-        System.out.println("Cliente: " + cliente.toString()); // Llamar al método toString() del cliente
-        System.out.println("Servicio: " + servicio);
-        System.out.println("Confirmación: " + (confirmacion ? "Confirmada" : "Pendiente")); // el ? es para evaluar booleanos
-    }
-
 
     private boolean esDiaLaboral(LocalDate fecha) {
         // implementar la lógica para verificar si la fecha está dentro del horario de atención
