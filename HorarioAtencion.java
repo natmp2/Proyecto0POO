@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class HorarioAtencion implements Serializable {
-    private Map<DayOfWeek, HorarioDiario> horarioSemanal;
+    public static Map<DayOfWeek, HorarioDiario> horarioSemanal;
 
     public HorarioAtencion() {
         this.horarioSemanal = new HashMap<>();
@@ -33,7 +33,7 @@ public class HorarioAtencion implements Serializable {
     }
 
     // clase interna para representar el horario diario
-    private static class HorarioDiario implements Serializable {
+    public static class HorarioDiario implements Serializable {
         private int horaApertura;
         private int horaCierre;
 
