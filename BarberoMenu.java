@@ -1,5 +1,5 @@
 
-package itcr.barbero;
+package itcr.proyecto0poo;
 
 /**
  *
