@@ -1,4 +1,4 @@
-package itcr.proyecto0poo;
+package itcr.barbero;
 
 import java.io.Serializable;
 
@@ -11,27 +11,7 @@ public class Servicio implements Serializable {
         this.nombre = nombre;
         this.numero = consecutivo++;
     }
-
-    public void crearServicio(String nombre) {
-        Servicio nuevoServicio = new Servicio(nombre);
-        System.out.println("Servicio creado exitosamente: " + nuevoServicio);
-    }
     
-    public void modificarServicio(String nuevoNombre) {
-        this.nombre = nuevoNombre;
-        System.out.println("Servicio modificado exitosamente: " + this);
-    }
-    
-    public void borrarServicio() {
-        System.out.println("Servicio eliminado exitosamente: " + this);
-    }
-
-    public void consultarServicio() {
-        System.out.println("Datos del tipo de servicio:");
-        System.out.println("Número: " + this.numero);
-        System.out.println("Nombre: " + this.nombre);
-    }
-
     public static int getConsecutivo() {
         return consecutivo;
     }
@@ -39,7 +19,6 @@ public class Servicio implements Serializable {
     public static void setConsecutivo(int consecutivo) {
         Servicio.consecutivo = consecutivo;
     }
-
 
     public int getNumero() {
         return numero;
