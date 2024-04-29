@@ -9,14 +9,24 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Barbero implements Serializable {
+    private Map<DayOfWeek, HorarioAtencion.HorarioDiario> horarioSemanal;
     private ArrayList<Cliente> listaClientes;
     private HashMap<Cliente, ArrayList<Cita>> listaCitas;
     private ArrayList<Servicio> listaServicios;
-    private Map<DayOfWeek, HorarioAtencion.HorarioDiario> horarioSemanal;
     
     public Barbero(){
         horarioSemanal = new HashMap<>();
+        for (DayOfWeek day : DayOfWeek.values()){
+            horarioSemanal.put(day, HorarioAtencion.obtenerHorarioDiario());
+        }
         listaServicios = new ArrayList<>();
+    }
+    
+
+    public void establecerHorario(DayOfWeek dia, int horaApertura, int horaCierre){
+        HorarioAtencion.HorarioDiario horario = horarioSemanal.get(dia);
+        horario.setHoraApertura(horaApertura);
+        horario.setHoraCierre(horaCierre);
     }
     
     public void crearServicio(String nombre) {
@@ -60,6 +70,7 @@ public class Barbero implements Serializable {
         }
     }
     
+       
     public static final Pattern REGEX_CORREO = 
         Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 
@@ -71,6 +82,7 @@ public class Barbero implements Serializable {
     public void setHorarioSemanal(Map<DayOfWeek, HorarioAtencion.HorarioDiario> horarioSemanal){
         this.horarioSemanal = horarioSemanal;
     }
+    
     
     
 }
