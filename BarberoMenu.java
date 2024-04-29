@@ -1,19 +1,16 @@
 
-package itcr.proyecto0poo;
+package itcr.barbero;
 
-/**
- *
- * @author nathaniel
- */
 public class BarberoMenu extends javax.swing.JFrame {
 
-    /**
-     * Creates new form BarberoMenu
-     */
+    private Barbero barbero;
+    
     public BarberoMenu() {
+       
         initComponents();
         deshabilitarBotonCita(); // empezamos deshabilitando el boton cita, hasta que se crea el horario
         // para asi poder evistar confusiones/problemas 
+        barbero = new Barbero();
     }
     
 
@@ -120,6 +117,8 @@ public class BarberoMenu extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         //Boton de servicios
+        //String nombre = "";
+        //Servicio S = new Servicio(String nombre);
         ServiciosMenu sm = new ServiciosMenu(this); //se crea la instancia de horario de atencion
         sm.setLocationRelativeTo(this); // no se muy bien que hace esto pero sirve igual con o sin pero el profe lo tenia
         sm.setVisible(true); //mostramos la pantalla de horario de atencion
@@ -129,8 +128,9 @@ public class BarberoMenu extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         //Boton de horario de atencion, tengo que ver como cambiarle el nombre sin que pase algo
+        HorarioAtencion HA = new HorarioAtencion();
         this.setVisible(false); // al abrir horario de atencion, se cierra el principal
-        HorarioAtencionMenu ham = new HorarioAtencionMenu(this); //se crea la instancia de horario de atencion
+        HorarioAtencionMenu ham = new HorarioAtencionMenu(this, HA); //se crea la instancia de horario de atencion
         ham.setLocationRelativeTo(this); // no se muy bien que hace esto pero sirve igual con o sin pero el profe lo tenia
         ham.setVisible(true); //mostramos la pantalla de horario de atencion
         
@@ -144,6 +144,7 @@ public class BarberoMenu extends javax.swing.JFrame {
     public void habilitarBotonCita(){
         jButton4.setEnabled(true);
     }
+    
     
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         //Boton de Clientes
