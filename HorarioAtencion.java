@@ -1,4 +1,4 @@
-package itcr.proyecto0poo;
+package itcr.barbero;
 
 import java.io.Serializable;
 import java.time.DayOfWeek;
@@ -9,34 +9,30 @@ public class HorarioAtencion implements Serializable {
     public static Map<DayOfWeek, HorarioDiario> horarioSemanal;
 
     public HorarioAtencion() {
-        this.horarioSemanal = new HashMap<>();
-        // inicializar el horario para cada día de la semana
+        HorarioAtencion.horarioSemanal = new HashMap<>(); // inicializar el horario para cada día de la semana
         for (DayOfWeek day : DayOfWeek.values()) {
-            this.horarioSemanal.put(day, new HorarioDiario());
+            HorarioAtencion.horarioSemanal.put(day, new HorarioDiario());
         }
     }
 
-    // métodos para establecer el horario de atención para un día específico (trabaja con hora militar)
-    public void establecerHorario(DayOfWeek dia, int horaApertura, int horaCierre) {
-        HorarioDiario horario = this.horarioSemanal.get(dia);
-        horario.setHoraApertura(horaApertura);
-        horario.setHoraCierre(horaCierre);
-        this.horarioSemanal.put(dia, horario);
-    }
-
     public int getHoraApertura(DayOfWeek dia) {
-        return this.horarioSemanal.get(dia).getHoraApertura();
+        return HorarioAtencion.horarioSemanal.get(dia).getHoraApertura();
     }
 
     public int getHoraCierre(DayOfWeek dia) {
-        return this.horarioSemanal.get(dia).getHoraCierre();
+        return HorarioAtencion.horarioSemanal.get(dia).getHoraCierre();
     }
 
+    public static HorarioDiario obtenerHorarioDiario() {
+            return new HorarioDiario(); // para poder utilizarlo desde la clase controladora
+        }
+    
     // clase interna para representar el horario diario
     public static class HorarioDiario implements Serializable {
         private int horaApertura;
         private int horaCierre;
-
+        
+        
         public int getHoraApertura() {
             return horaApertura;
         }
