@@ -1,18 +1,16 @@
-
 package itcr.barbero;
 
 public class BarberoMenu extends javax.swing.JFrame {
 
     private Barbero barbero;
-    
+
     public BarberoMenu() {
-       
+
         initComponents();
         deshabilitarBotonCita(); // empezamos deshabilitando el boton cita, hasta que se crea el horario
         // para asi poder evistar confusiones/problemas 
         barbero = new Barbero();
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -25,7 +23,7 @@ public class BarberoMenu extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        botonHorarioAtencion = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -37,10 +35,10 @@ public class BarberoMenu extends javax.swing.JFrame {
 
         jLabel2.setText("En que desea ingresar?");
 
-        jButton1.setText("Horario de Atencion");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        botonHorarioAtencion.setText("Horario de Atencion");
+        botonHorarioAtencion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                botonHorarioAtencionActionPerformed(evt);
             }
         });
 
@@ -86,7 +84,7 @@ public class BarberoMenu extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botonHorarioAtencion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -102,7 +100,7 @@ public class BarberoMenu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
                 .addGap(33, 33, 33)
-                .addComponent(jButton1)
+                .addComponent(botonHorarioAtencion)
                 .addGap(18, 18, 18)
                 .addComponent(jButton2)
                 .addGap(18, 18, 18)
@@ -119,46 +117,46 @@ public class BarberoMenu extends javax.swing.JFrame {
         //Boton de servicios
         //String nombre = "";
         //Servicio S = new Servicio(String nombre);
-        ServiciosMenu sm = new ServiciosMenu(this); //se crea la instancia de horario de atencion
-        sm.setLocationRelativeTo(this); // no se muy bien que hace esto pero sirve igual con o sin pero el profe lo tenia
-        sm.setVisible(true); //mostramos la pantalla de horario de atencion
-        
-       
+        ServiciosMenu sm = new ServiciosMenu(this); 
+        sm.setLocationRelativeTo(this); 
+        sm.setVisible(true);
+
+
     }                                        
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void botonHorarioAtencionActionPerformed(java.awt.event.ActionEvent evt) {                                                     
         //Boton de horario de atencion, tengo que ver como cambiarle el nombre sin que pase algo
         HorarioAtencion HA = new HorarioAtencion();
         this.setVisible(false); // al abrir horario de atencion, se cierra el principal
         HorarioAtencionMenu ham = new HorarioAtencionMenu(this, HA); //se crea la instancia de horario de atencion
         ham.setLocationRelativeTo(this); // no se muy bien que hace esto pero sirve igual con o sin pero el profe lo tenia
         ham.setVisible(true); //mostramos la pantalla de horario de atencion
-        
-        
-    }                                        
-    
-    public void deshabilitarBotonCita(){
-         jButton4.setEnabled(false);
+
+
+    }                                                    
+
+    public void deshabilitarBotonCita() {
+        jButton4.setEnabled(false);
     }
-    
-    public void habilitarBotonCita(){
+
+    public void habilitarBotonCita() {
         jButton4.setEnabled(true);
     }
-    
-    
+
+
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         //Boton de Clientes
-        this.setVisible(false); 
-        ClientesMenu clm = new ClientesMenu(this); 
-        clm.setLocationRelativeTo(this); 
-        clm.setVisible(true); 
+        this.setVisible(false);
+        ClientesMenu clm = new ClientesMenu(this);
+        clm.setLocationRelativeTo(this);
+        clm.setVisible(true);
     }                                        
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         //Boton de citas
-        this.setVisible(false); 
+        this.setVisible(false);
         CitasMenu cim = new CitasMenu(this);
-        cim.setLocationRelativeTo(this); 
+        cim.setLocationRelativeTo(this);
         cim.setVisible(true); //
     }                                        
 
@@ -198,7 +196,7 @@ public class BarberoMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify                     
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton botonHorarioAtencion;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
