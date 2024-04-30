@@ -2,17 +2,25 @@ package itcr.barbero;
 
 import java.io.Serializable;
 import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+//import javax.mail.*;
+//import javax.mail.internet.InternetAddress;
+//import javax.mail.internet.MimeMessage;
 
 public class Barbero implements Serializable {
     private Map<DayOfWeek, HorarioAtencion.HorarioDiario> horarioSemanal;
     private ArrayList<Cliente> listaClientes;
-    private HashMap<Cliente, ArrayList<Cita>> listaCitas;
+    private ArrayList<Cita> listaCitas;
+    private HashMap<Cliente, ArrayList<Cita>> listaClienteCitas;
     private ArrayList<Servicio> listaServicios;
+    private ArrayList<String> listaEspera;
     
     public Barbero(){
         horarioSemanal = new HashMap<>();
@@ -21,6 +29,8 @@ public class Barbero implements Serializable {
         }
         listaServicios = new ArrayList<>();
         listaClientes = new ArrayList<>();
+        listaCitas = new ArrayList<>();
+        listaEspera = new ArrayList<>();
     }
     
     public Cliente busquedaCliente(int numero){ // en vez de implementar for's en cada metodo se implementa esta que retorna cliente si hay y sino, null '
@@ -40,6 +50,97 @@ public class Barbero implements Serializable {
             }
         }
         return null;
+    }
+    
+    public Cita busquedaCita(int numero){
+        for (Cita cita : listaCitas){
+            if (cita.getNumero() == numero){
+                return cita;
+            }
+            
+        }
+        return null;
+    }
+    
+    // metodos para las citas
+    private boolean esDiaLaboral(LocalDate fecha) {
+        // implementar la lógica para verificar si la fecha está dentro del horario de atención
+        // este es ejemplo, cambiar luego según horario
+        return fecha.getDayOfWeek().getValue() >= 1 && fecha.getDayOfWeek().getValue() <= 5;
+    }
+
+    private boolean esHoraValida(int hora, int horaApertura, int horaCierre) {
+        // implementar la lógica para verificar si la hora está dentro del horario de atención
+        // este es ejemplo, cambiar luego según horario
+        return hora >= horaApertura && hora <= horaCierre;
+    }
+    
+    public void crearCita(LocalDate fecha, int hora, Servicio servicio, boolean confirmacion, Cliente cliente){
+        HorarioAtencion.HorarioDiario horarioDiario = horarioSemanal.get(fecha.getDayOfWeek()); 
+        // creamos una instancia de horariodiario en horarioatencion para poder sacar las horas de apertura y cierre para los dias de la semana del horario semanal 
+        if (!esDiaLaboral(fecha)){
+            System.out.println("la fecha ingresada no es parte del horario de atencion");
+            return;
+        }
+        
+        if (!esHoraValida(hora,horarioDiario.getHoraApertura(),horarioDiario.getHoraCierre())){
+            System.out.println("la hora ingresada no es parte del horario de atencion");
+            return;
+        }
+        for (Cita cita : listaCitas){ // no podemos usar el metodo de busqueda de cita si no sabemos el numero de la cita que vamos a crear
+            if (cita.getFecha().equals(fecha) && cita.getHora() == hora){
+                System.out.println("la hora ingresada no es parte del horario de atencion");
+                return;
+            }
+        }
+        
+        Cita nuevaCita = new Cita(fecha, hora, servicio, false, cliente);
+        listaCitas.add(nuevaCita);
+        System.out.println("la cita: " + nuevaCita + "con numero: " + nuevaCita.getNumero() + "ha sido creada con exito");
+    }
+   
+    
+    public void modificarCita(int numeroCita, LocalDate nuevaFecha, int nuevaHora, Servicio nuevoServicio, Cliente nuevoCliente){
+        Cita cita = busquedaCita(numeroCita);
+        if (cita == null) {
+            System.out.println("No se encontró una cita con ese numero");
+            return;
+        }
+        cita.setFecha(nuevaFecha);
+        cita.setHora(nuevaHora);
+        cita.setServicio(nuevoServicio);
+        cita.setConfirmacion(false);
+        cita.setCliente(nuevoCliente);
+        
+    }
+        
+    public void confirmarCita(int numeroCita){
+       Cita cita = busquedaCita(numeroCita);
+        if (cita == null) {
+            System.out.println("No se encontró una cita con ese numero");
+            return;
+        }
+        
+        cita.setConfirmacion(true);
+        System.out.println("La cita con numero" + cita.getNumero() + "ya se encuentra confirmada");
+    }
+    
+    public void borrarCita(int numeroCita){
+        Cita cita = busquedaCita(numeroCita);
+        if (cita == null) {
+            System.out.println("No se encontró una cita con ese numero");
+            return;
+        }
+        listaCitas.remove(cita);
+        System.out.println("se ha eliminado la cita nuemero" + numeroCita + "con exito.");
+        
+    }
+    
+    public void consultarCita(){
+        System.out.println("Citas actuales");
+        for (Cita cita : listaCitas){
+            System.out.println(cita);
+        }
     }
     
     public int crearCliente(String nombre, String email, String telefono){
@@ -110,6 +211,8 @@ public class Barbero implements Serializable {
             
     }
     
+ 
+    
     public void establecerHorario(DayOfWeek dia, int horaApertura, int horaCierre){
         HorarioAtencion.HorarioDiario horario = horarioSemanal.get(dia);
         horario.setHoraApertura(horaApertura);
@@ -158,6 +261,18 @@ public class Barbero implements Serializable {
         }
     }
     
+    public List<Servicio> verListaServicios(){
+        return listaServicios;
+    }
+    
+    public List<Cita> verListaCitas(){
+        return listaCitas;
+    }
+    
+    public List<Cliente> verListaClientes(){
+        return listaClientes;
+    }
+    
     ////////
     // aqui inicia el codigo sacado de https://stackoverflow.com/questions/8204680/java-regex-email 
     public static final Pattern REGEX_CORREO = 
@@ -169,7 +284,6 @@ public class Barbero implements Serializable {
     }
     // aqui termina el codigo 
     /////////
-    
     
     
     private boolean validarTelefono(String telefono) {
@@ -189,10 +303,79 @@ public class Barbero implements Serializable {
         // Si pasa todas las validaciones, el número de teléfono es válido
         return true;
     }
-      
     
-    public void setHorarioSemanal(Map<DayOfWeek, HorarioAtencion.HorarioDiario> horarioSemanal){
-        this.horarioSemanal = horarioSemanal;
+    public void agregarListaEspera(String nombreCliente) {
+        listaEspera.add(nombreCliente);
+        System.out.println("Cliente " + nombreCliente + " agregado a la lista de espera.");
     }
+
+    public void borrarDeListaEspera(String nombreCliente) {
+        if (listaEspera.remove(nombreCliente)) {
+            System.out.println("Cliente " + nombreCliente + " eliminado de la lista de espera.");
+        } else {
+            System.out.println("El cliente " + nombreCliente + " no se encontró en la lista de espera.");
+        }
+    }
+
+    public void mostrarListaEspera() {
+        System.out.println("Lista de espera:");
+        if (listaEspera.isEmpty()) {
+            System.out.println("La lista de espera está vacía.");
+        } else {
+            for (String nombreCliente : listaEspera) {
+                System.out.println(nombreCliente);
+            }
+        }
+    }
+    
+      
+//    public void EnviarEmailConfirmacion(Cliente cliente, Cita cita) {
+//        String correoEnviador = "barberojavatest@gmail.com"; // Reemplazar con correo electrónico de prueba
+//        String claveAplicacion = "coqv drcb mtxv yplk"; // Reemplazar con tu clave de aplicación generada
+//
+//        Properties props = new Properties();
+//        props.put("mail.smtp.auth", "true");
+//        props.put("mail.smtp.starttls.enable", "true");
+//        props.put("mail.smtp.host", "smtp.gmail.com"); // Cambia si usas otro proveedor de correo
+//        props.put("mail.smtp.port", "587");
+//
+//        Session session = Session.getInstance(props, new javax.mail.Authenticator() {
+//            protected PasswordAuthentication getPasswordAuthentication() {
+//                return new PasswordAuthentication(correoEnviador, claveAplicacion);
+//            }
+//        });
+//
+//        try {
+//            Message message = new MimeMessage(session);
+//            message.setFrom(new InternetAddress(correoEnviador));
+//            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(cliente.getEmail()));
+//            message.setSubject("Confirmación de cita");
+//            message.setText("Estimado cliente " + cliente.getNombre() + ","
+//                    + "\n\nEsta es una confirmación de su cita programada para el "
+//                    + cita.getFecha() + " a las " + cita.getHora() + " horas."
+//                    + "\n\nPor favor, responda a este correo para confirmar su asistencia."
+//                    + "\n\nSaludos cordiales,\nEquipo de Barberos");
+//
+//            Transport.send(message);
+//
+//            System.out.println("Correo de confirmación enviado a " + cliente.getEmail());
+//            cita.setConfirmacion(true);
+//        } catch (MessagingException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
+
+
+//    
+//    public void obtenerCalendarioCitas(int opcionVisualizacion, LocalDate fechaInicio) {
+//        // pendiente
+//    }
+//    
+    
+    
+    // no me acuerdo muy bien porque habia implementado esto, al rato lo podemos borrar 
+//    public void setHorarioSemanal(Map<DayOfWeek, HorarioAtencion.HorarioDiario> horarioSemanal){
+//        this.horarioSemanal = horarioSemanal;
+//    }
     
 }
