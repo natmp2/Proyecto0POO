@@ -3,7 +3,6 @@ package itcr.barbero;
 import java.io.Serializable;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -31,6 +30,10 @@ public class Barbero implements Serializable {
         listaClientes = new ArrayList<>();
         listaCitas = new ArrayList<>();
         listaEspera = new ArrayList<>();
+    }
+    
+    public Map<DayOfWeek, HorarioAtencion.HorarioDiario> obtenerHorarioAtencion(){
+        return this.horarioSemanal;
     }
     
     public Cliente busquedaCliente(int numero){ // en vez de implementar for's en cada metodo se implementa esta que retorna cliente si hay y sino, null '
@@ -143,15 +146,15 @@ public class Barbero implements Serializable {
         }
     }
     
-    public int crearCliente(String nombre, String email, String telefono){
+    public Cliente crearCliente(String nombre, String email, String telefono){
         if (!verificarEmail(email)) {
             System.out.println("el email no es valido");
-            return 0;
+            return null;
         }
         
         if (!validarTelefono(telefono)){
             System.out.println("el telefono no es valido");
-            return 0;
+            return null;
         }
         Cliente nuevoCliente = new Cliente();
         nuevoCliente.setNombre(nombre);
@@ -159,7 +162,7 @@ public class Barbero implements Serializable {
         nuevoCliente.setTelefono(telefono);
         listaClientes.add(nuevoCliente);
         System.out.println("cliente: " + nombre + "ha sido creado con el numero: " + nuevoCliente.getNumero());
-        return nuevoCliente.getNumero();
+        return nuevoCliente;
     }
     
     public void modificarCliente(int numeroCliente, String nuevoNombre, String nuevoEmail, String nuevoTelefono){
