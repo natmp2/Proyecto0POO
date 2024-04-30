@@ -24,9 +24,9 @@ public class BarberoMenu extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         botonHorarioAtencion = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        botonClientes = new javax.swing.JButton();
+        botonServicios = new javax.swing.JButton();
+        botonCitas = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -42,24 +42,24 @@ public class BarberoMenu extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Clientes");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        botonClientes.setText("Clientes");
+        botonClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                botonClientesActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Servicios");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        botonServicios.setText("Servicios");
+        botonServicios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                botonServiciosActionPerformed(evt);
             }
         });
 
-        jButton4.setText("Citas");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        botonCitas.setText("Citas");
+        botonCitas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                botonCitasActionPerformed(evt);
             }
         });
 
@@ -85,9 +85,9 @@ public class BarberoMenu extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(botonHorarioAtencion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(botonClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botonServicios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botonCitas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(174, 174, 174))
         );
         layout.setVerticalGroup(
@@ -102,18 +102,18 @@ public class BarberoMenu extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addComponent(botonHorarioAtencion)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(botonClientes)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
+                .addComponent(botonServicios)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4)
+                .addComponent(botonCitas)
                 .addContainerGap(40, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>                        
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void botonServiciosActionPerformed(java.awt.event.ActionEvent evt) {                                               
         //Boton de servicios
         //String nombre = "";
         //Servicio S = new Servicio(String nombre);
@@ -122,7 +122,7 @@ public class BarberoMenu extends javax.swing.JFrame {
         sm.setVisible(true);
 
 
-    }                                        
+    }                                              
 
     private void botonHorarioAtencionActionPerformed(java.awt.event.ActionEvent evt) {                                                     
         //Boton de horario de atencion, tengo que ver como cambiarle el nombre sin que pase algo
@@ -136,29 +136,29 @@ public class BarberoMenu extends javax.swing.JFrame {
     }                                                    
 
     public void deshabilitarBotonCita() {
-        jButton4.setEnabled(false);
+        botonCitas.setEnabled(false);
     }
 
     public void habilitarBotonCita() {
-        jButton4.setEnabled(true);
+        botonCitas.setEnabled(true);
     }
 
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void botonClientesActionPerformed(java.awt.event.ActionEvent evt) {                                              
         //Boton de Clientes
         this.setVisible(false);
         ClientesMenu clm = new ClientesMenu(this);
         clm.setLocationRelativeTo(this);
         clm.setVisible(true);
-    }                                        
+    }                                             
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void botonCitasActionPerformed(java.awt.event.ActionEvent evt) {                                           
         //Boton de citas
         this.setVisible(false);
         CitasMenu cim = new CitasMenu(this);
         cim.setLocationRelativeTo(this);
         cim.setVisible(true); //
-    }                                        
+    }                                          
 
     /**
      * @param args the command line arguments
@@ -196,10 +196,10 @@ public class BarberoMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify                     
+    private javax.swing.JButton botonCitas;
+    private javax.swing.JButton botonClientes;
     private javax.swing.JButton botonHorarioAtencion;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton botonServicios;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
