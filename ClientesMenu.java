@@ -1,15 +1,20 @@
 
 package itcr.barbero;
 
+import javax.swing.DefaultListModel;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ClientesMenu extends javax.swing.JFrame {
 
     
     private BarberoMenu barberoMenu;
+    private List<Cliente> clientes;
     
     public ClientesMenu(BarberoMenu barberoMenu) {
         initComponents();
         this.barberoMenu = barberoMenu;
+        this.clientes = new ArrayList<>();
     }
  
     @SuppressWarnings("unchecked")
@@ -100,6 +105,19 @@ public class ClientesMenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>                        
 
+    public void agregarCliente(Cliente cliente){ // despues de haber creado el cliente se guarda y se muestra en la interfaz
+        clientes.add(cliente);
+        actualizarListaClientes();
+    }
+    
+    public void actualizarListaClientes(){
+        DefaultListModel<String> model = new DefaultListModel<>(); // creamos un a listamodel para poder implementarla en la interfaz como el numero y el nombre del cliente 
+        for (Cliente cliente : clientes){
+            model.addElement(cliente.getNumero() + ". " + cliente.getNombre());
+        }
+        jListaClientes.setModel(model);
+    }
+    
     private void botonCrearClienteActionPerformed(java.awt.event.ActionEvent evt) {                                                  
         Cliente cliente = new Cliente();
         CrearClienteMenu CCM = new CrearClienteMenu(this);
