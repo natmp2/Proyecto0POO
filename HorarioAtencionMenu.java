@@ -11,37 +11,38 @@ public class HorarioAtencionMenu extends javax.swing.JFrame {
     private ArrayList<JCheckBox> listaCheckBox;
     private BarberoMenu barberoMenu;
     private HorarioAtencion horario;
+    private Barbero barbero;
             
     public HorarioAtencionMenu(BarberoMenu barberoMenu, HorarioAtencion horario) {
         //aqui podemos declarar lo que queremos deshabilitar hasta que pase x situacion
         initComponents();
         this.barberoMenu = barberoMenu;
         this.horario = horario;
-        jButton2.setEnabled(false);
-        jComboBox1.setEnabled(false);
-        jComboBox3.setEnabled(false);
-        jComboBox4.setEnabled(false);
-        jComboBox5.setEnabled(false);
-        jComboBox6.setEnabled(false);
-        jComboBox7.setEnabled(false);
-        jComboBox8.setEnabled(false);
-        jComboBox9.setEnabled(false);
-        jComboBox10.setEnabled(false);
-        jComboBox11.setEnabled(false);
-        jComboBox12.setEnabled(false);
-        jComboBox13.setEnabled(false);
-        jComboBox14.setEnabled(false);
-        jComboBox16.setEnabled(false);
+        botonContinuar.setEnabled(false);
+        ComboBoxLunesApertura.setEnabled(false);
+        ComboBoxLunesCierre.setEnabled(false);
+        ComboBoxMartesApertura.setEnabled(false);
+        ComboBoxMartesCierre.setEnabled(false);
+        ComboBoxMiercolesApertura.setEnabled(false);
+        ComboBoxMiercolesCierre.setEnabled(false);
+        ComboBoxJuevesApertura.setEnabled(false);
+        ComboBoxJuevesCierre.setEnabled(false);
+        ComboBoxViernesApertura.setEnabled(false);
+        ComboBoxViernesCierre.setEnabled(false);
+        ComboBoxSabadoApertura.setEnabled(false);
+        ComboBoxSabadoCierre.setEnabled(false);
+        ComboBoxDomingoApertura.setEnabled(false);
+        ComboBoxDomingoCierre.setEnabled(false);
         
         listaCheckBox = new ArrayList<>();
-        listaCheckBox.add(jCheckBox1);
-        listaCheckBox.add(jCheckBox2);
-        listaCheckBox.add(jCheckBox3);
-        listaCheckBox.add(jCheckBox5);
+        listaCheckBox.add(CheckBoxLunes);
+        listaCheckBox.add(CheckBoxMartes);
+        listaCheckBox.add(CheckBoxMiercoles);
+        listaCheckBox.add(CheckBoxJueves);
         listaCheckBox.add(jCheckBox6);
-        listaCheckBox.add(jCheckBox7);
-        listaCheckBox.add(jCheckBox8);
-        listaCheckBox.add(jCheckBox9);
+        listaCheckBox.add(CheckBoxViernes);
+        listaCheckBox.add(CheckBoxSabado);
+        listaCheckBox.add(CheckBoxDomingo);
         
         habilitarContinuar();
 
@@ -70,29 +71,29 @@ public class HorarioAtencionMenu extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jComboBox4 = new javax.swing.JComboBox<>();
-        jComboBox5 = new javax.swing.JComboBox<>();
-        jComboBox6 = new javax.swing.JComboBox<>();
-        jComboBox7 = new javax.swing.JComboBox<>();
-        jComboBox8 = new javax.swing.JComboBox<>();
-        jComboBox9 = new javax.swing.JComboBox<>();
-        jComboBox10 = new javax.swing.JComboBox<>();
-        jComboBox11 = new javax.swing.JComboBox<>();
-        jComboBox12 = new javax.swing.JComboBox<>();
-        jComboBox13 = new javax.swing.JComboBox<>();
-        jComboBox14 = new javax.swing.JComboBox<>();
-        jComboBox16 = new javax.swing.JComboBox<>();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jCheckBox5 = new javax.swing.JCheckBox();
-        jCheckBox7 = new javax.swing.JCheckBox();
-        jCheckBox8 = new javax.swing.JCheckBox();
-        jCheckBox9 = new javax.swing.JCheckBox();
+        botonVolver = new javax.swing.JButton();
+        botonContinuar = new javax.swing.JButton();
+        ComboBoxLunesApertura = new javax.swing.JComboBox<>();
+        ComboBoxLunesCierre = new javax.swing.JComboBox<>();
+        ComboBoxMartesApertura = new javax.swing.JComboBox<>();
+        ComboBoxMartesCierre = new javax.swing.JComboBox<>();
+        ComboBoxMiercolesApertura = new javax.swing.JComboBox<>();
+        ComboBoxMiercolesCierre = new javax.swing.JComboBox<>();
+        ComboBoxJuevesApertura = new javax.swing.JComboBox<>();
+        ComboBoxJuevesCierre = new javax.swing.JComboBox<>();
+        ComboBoxViernesApertura = new javax.swing.JComboBox<>();
+        ComboBoxViernesCierre = new javax.swing.JComboBox<>();
+        ComboBoxSabadoApertura = new javax.swing.JComboBox<>();
+        ComboBoxSabadoCierre = new javax.swing.JComboBox<>();
+        ComboBoxDomingoApertura = new javax.swing.JComboBox<>();
+        ComboBoxDomingoCierre = new javax.swing.JComboBox<>();
+        CheckBoxLunes = new javax.swing.JCheckBox();
+        CheckBoxMartes = new javax.swing.JCheckBox();
+        CheckBoxMiercoles = new javax.swing.JCheckBox();
+        CheckBoxJueves = new javax.swing.JCheckBox();
+        CheckBoxViernes = new javax.swing.JCheckBox();
+        CheckBoxSabado = new javax.swing.JCheckBox();
+        CheckBoxDomingo = new javax.swing.JCheckBox();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
 
@@ -127,157 +128,157 @@ public class HorarioAtencionMenu extends javax.swing.JFrame {
 
         jLabel11.setText("Dias");
 
-        jButton1.setText(" Volver");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        botonVolver.setText(" Volver");
+        botonVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                botonVolverActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Continuar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        botonContinuar.setText("Continuar");
+        botonContinuar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                botonContinuarActionPerformed(evt);
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "000", "100", "200", "300", "400", "500", "600", "700", "800", "900", "1000", "1100", "1200", "1300", "1400", "1500", "1600", "1700", "1800", "1900", "2000", "2100", "2200", "2300", "2400" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        ComboBoxLunesApertura.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "000", "100", "200", "300", "400", "500", "600", "700", "800", "900", "1000", "1100", "1200", "1300", "1400", "1500", "1600", "1700", "1800", "1900", "2000", "2100", "2200", "2300", "2400" }));
+        ComboBoxLunesApertura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                ComboBoxLunesAperturaActionPerformed(evt);
             }
         });
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "000", "100", "200", "300", "400", "500", "600", "700", "800", "900", "1000", "1100", "1200", "1300", "1400", "1500", "1600", "1700", "1800", "1900", "2000", "2100", "2200", "2300", "2400" }));
-        jComboBox3.addActionListener(new java.awt.event.ActionListener() {
+        ComboBoxLunesCierre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "000", "100", "200", "300", "400", "500", "600", "700", "800", "900", "1000", "1100", "1200", "1300", "1400", "1500", "1600", "1700", "1800", "1900", "2000", "2100", "2200", "2300", "2400" }));
+        ComboBoxLunesCierre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox3ActionPerformed(evt);
+                ComboBoxLunesCierreActionPerformed(evt);
             }
         });
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "000", "100", "200", "300", "400", "500", "600", "700", "800", "900", "1000", "1100", "1200", "1300", "1400", "1500", "1600", "1700", "1800", "1900", "2000", "2100", "2200", "2300", "2400" }));
-        jComboBox4.addActionListener(new java.awt.event.ActionListener() {
+        ComboBoxMartesApertura.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "000", "100", "200", "300", "400", "500", "600", "700", "800", "900", "1000", "1100", "1200", "1300", "1400", "1500", "1600", "1700", "1800", "1900", "2000", "2100", "2200", "2300", "2400" }));
+        ComboBoxMartesApertura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox4ActionPerformed(evt);
+                ComboBoxMartesAperturaActionPerformed(evt);
             }
         });
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "000", "100", "200", "300", "400", "500", "600", "700", "800", "900", "1000", "1100", "1200", "1300", "1400", "1500", "1600", "1700", "1800", "1900", "2000", "2100", "2200", "2300", "2400" }));
-        jComboBox5.addActionListener(new java.awt.event.ActionListener() {
+        ComboBoxMartesCierre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "000", "100", "200", "300", "400", "500", "600", "700", "800", "900", "1000", "1100", "1200", "1300", "1400", "1500", "1600", "1700", "1800", "1900", "2000", "2100", "2200", "2300", "2400" }));
+        ComboBoxMartesCierre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox5ActionPerformed(evt);
+                ComboBoxMartesCierreActionPerformed(evt);
             }
         });
 
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "000", "100", "200", "300", "400", "500", "600", "700", "800", "900", "1000", "1100", "1200", "1300", "1400", "1500", "1600", "1700", "1800", "1900", "2000", "2100", "2200", "2300", "2400" }));
-        jComboBox6.addActionListener(new java.awt.event.ActionListener() {
+        ComboBoxMiercolesApertura.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "000", "100", "200", "300", "400", "500", "600", "700", "800", "900", "1000", "1100", "1200", "1300", "1400", "1500", "1600", "1700", "1800", "1900", "2000", "2100", "2200", "2300", "2400" }));
+        ComboBoxMiercolesApertura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox6ActionPerformed(evt);
+                ComboBoxMiercolesAperturaActionPerformed(evt);
             }
         });
 
-        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "000", "100", "200", "300", "400", "500", "600", "700", "800", "900", "1000", "1100", "1200", "1300", "1400", "1500", "1600", "1700", "1800", "1900", "2000", "2100", "2200", "2300", "2400" }));
-        jComboBox7.addActionListener(new java.awt.event.ActionListener() {
+        ComboBoxMiercolesCierre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "000", "100", "200", "300", "400", "500", "600", "700", "800", "900", "1000", "1100", "1200", "1300", "1400", "1500", "1600", "1700", "1800", "1900", "2000", "2100", "2200", "2300", "2400" }));
+        ComboBoxMiercolesCierre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox7ActionPerformed(evt);
+                ComboBoxMiercolesCierreActionPerformed(evt);
             }
         });
 
-        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "000", "100", "200", "300", "400", "500", "600", "700", "800", "900", "1000", "1100", "1200", "1300", "1400", "1500", "1600", "1700", "1800", "1900", "2000", "2100", "2200", "2300", "2400" }));
-        jComboBox8.addActionListener(new java.awt.event.ActionListener() {
+        ComboBoxJuevesApertura.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "000", "100", "200", "300", "400", "500", "600", "700", "800", "900", "1000", "1100", "1200", "1300", "1400", "1500", "1600", "1700", "1800", "1900", "2000", "2100", "2200", "2300", "2400" }));
+        ComboBoxJuevesApertura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox8ActionPerformed(evt);
+                ComboBoxJuevesAperturaActionPerformed(evt);
             }
         });
 
-        jComboBox9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "000", "100", "200", "300", "400", "500", "600", "700", "800", "900", "1000", "1100", "1200", "1300", "1400", "1500", "1600", "1700", "1800", "1900", "2000", "2100", "2200", "2300", "2400" }));
-        jComboBox9.addActionListener(new java.awt.event.ActionListener() {
+        ComboBoxJuevesCierre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "000", "100", "200", "300", "400", "500", "600", "700", "800", "900", "1000", "1100", "1200", "1300", "1400", "1500", "1600", "1700", "1800", "1900", "2000", "2100", "2200", "2300", "2400" }));
+        ComboBoxJuevesCierre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox9ActionPerformed(evt);
+                ComboBoxJuevesCierreActionPerformed(evt);
             }
         });
 
-        jComboBox10.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "000", "100", "200", "300", "400", "500", "600", "700", "800", "900", "1000", "1100", "1200", "1300", "1400", "1500", "1600", "1700", "1800", "1900", "2000", "2100", "2200", "2300", "2400" }));
-        jComboBox10.addActionListener(new java.awt.event.ActionListener() {
+        ComboBoxViernesApertura.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "000", "100", "200", "300", "400", "500", "600", "700", "800", "900", "1000", "1100", "1200", "1300", "1400", "1500", "1600", "1700", "1800", "1900", "2000", "2100", "2200", "2300", "2400" }));
+        ComboBoxViernesApertura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox10ActionPerformed(evt);
+                ComboBoxViernesAperturaActionPerformed(evt);
             }
         });
 
-        jComboBox11.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "000", "100", "200", "300", "400", "500", "600", "700", "800", "900", "1000", "1100", "1200", "1300", "1400", "1500", "1600", "1700", "1800", "1900", "2000", "2100", "2200", "2300", "2400" }));
-        jComboBox11.addActionListener(new java.awt.event.ActionListener() {
+        ComboBoxViernesCierre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "000", "100", "200", "300", "400", "500", "600", "700", "800", "900", "1000", "1100", "1200", "1300", "1400", "1500", "1600", "1700", "1800", "1900", "2000", "2100", "2200", "2300", "2400" }));
+        ComboBoxViernesCierre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox11ActionPerformed(evt);
+                ComboBoxViernesCierreActionPerformed(evt);
             }
         });
 
-        jComboBox12.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "000", "100", "200", "300", "400", "500", "600", "700", "800", "900", "1000", "1100", "1200", "1300", "1400", "1500", "1600", "1700", "1800", "1900", "2000", "2100", "2200", "2300", "2400" }));
-        jComboBox12.addActionListener(new java.awt.event.ActionListener() {
+        ComboBoxSabadoApertura.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "000", "100", "200", "300", "400", "500", "600", "700", "800", "900", "1000", "1100", "1200", "1300", "1400", "1500", "1600", "1700", "1800", "1900", "2000", "2100", "2200", "2300", "2400" }));
+        ComboBoxSabadoApertura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox12ActionPerformed(evt);
+                ComboBoxSabadoAperturaActionPerformed(evt);
             }
         });
 
-        jComboBox13.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "000", "100", "200", "300", "400", "500", "600", "700", "800", "900", "1000", "1100", "1200", "1300", "1400", "1500", "1600", "1700", "1800", "1900", "2000", "2100", "2200", "2300", "2400" }));
-        jComboBox13.addActionListener(new java.awt.event.ActionListener() {
+        ComboBoxSabadoCierre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "000", "100", "200", "300", "400", "500", "600", "700", "800", "900", "1000", "1100", "1200", "1300", "1400", "1500", "1600", "1700", "1800", "1900", "2000", "2100", "2200", "2300", "2400" }));
+        ComboBoxSabadoCierre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox13ActionPerformed(evt);
+                ComboBoxSabadoCierreActionPerformed(evt);
             }
         });
 
-        jComboBox14.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "000", "100", "200", "300", "400", "500", "600", "700", "800", "900", "1000", "1100", "1200", "1300", "1400", "1500", "1600", "1700", "1800", "1900", "2000", "2100", "2200", "2300", "2400" }));
-        jComboBox14.addActionListener(new java.awt.event.ActionListener() {
+        ComboBoxDomingoApertura.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "000", "100", "200", "300", "400", "500", "600", "700", "800", "900", "1000", "1100", "1200", "1300", "1400", "1500", "1600", "1700", "1800", "1900", "2000", "2100", "2200", "2300", "2400" }));
+        ComboBoxDomingoApertura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox14ActionPerformed(evt);
+                ComboBoxDomingoAperturaActionPerformed(evt);
             }
         });
 
-        jComboBox16.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "000", "100", "200", "300", "400", "500", "600", "700", "800", "900", "1000", "1100", "1200", "1300", "1400", "1500", "1600", "1700", "1800", "1900", "2000", "2100", "2200", "2300", "2400" }));
-        jComboBox16.addActionListener(new java.awt.event.ActionListener() {
+        ComboBoxDomingoCierre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "000", "100", "200", "300", "400", "500", "600", "700", "800", "900", "1000", "1100", "1200", "1300", "1400", "1500", "1600", "1700", "1800", "1900", "2000", "2100", "2200", "2300", "2400" }));
+        ComboBoxDomingoCierre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox16ActionPerformed(evt);
+                ComboBoxDomingoCierreActionPerformed(evt);
             }
         });
 
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        CheckBoxLunes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                CheckBoxLunesActionPerformed(evt);
             }
         });
 
-        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+        CheckBoxMartes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox2ActionPerformed(evt);
+                CheckBoxMartesActionPerformed(evt);
             }
         });
 
-        jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
+        CheckBoxMiercoles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox3ActionPerformed(evt);
+                CheckBoxMiercolesActionPerformed(evt);
             }
         });
 
-        jCheckBox5.addActionListener(new java.awt.event.ActionListener() {
+        CheckBoxJueves.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox5ActionPerformed(evt);
+                CheckBoxJuevesActionPerformed(evt);
             }
         });
 
-        jCheckBox7.addActionListener(new java.awt.event.ActionListener() {
+        CheckBoxViernes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox7ActionPerformed(evt);
+                CheckBoxViernesActionPerformed(evt);
             }
         });
 
-        jCheckBox8.addActionListener(new java.awt.event.ActionListener() {
+        CheckBoxSabado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox8ActionPerformed(evt);
+                CheckBoxSabadoActionPerformed(evt);
             }
         });
 
-        jCheckBox9.addActionListener(new java.awt.event.ActionListener() {
+        CheckBoxDomingo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox9ActionPerformed(evt);
+                CheckBoxDomingoActionPerformed(evt);
             }
         });
 
@@ -293,21 +294,21 @@ public class HorarioAtencionMenu extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton1)
+                        .addComponent(botonVolver)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(botonContinuar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(59, 59, 59)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jCheckBox1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jCheckBox2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jCheckBox3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jCheckBox5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jCheckBox7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jCheckBox8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jCheckBox9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(CheckBoxLunes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(CheckBoxMartes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(CheckBoxMiercoles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(CheckBoxJueves, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(CheckBoxViernes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(CheckBoxSabado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(CheckBoxDomingo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
@@ -324,24 +325,24 @@ public class HorarioAtencionMenu extends javax.swing.JFrame {
                                                 .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                         .addGap(18, 18, 18)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(ComboBoxMartesApertura, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(ComboBoxLunesApertura, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jLabel9)
-                                            .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jComboBox10, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jComboBox12, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jComboBox14, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(ComboBoxMiercolesApertura, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(ComboBoxJuevesApertura, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(ComboBoxViernesApertura, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(ComboBoxSabadoApertura, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(ComboBoxDomingoApertura, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(38, 38, 38)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jComboBox16, 0, 102, Short.MAX_VALUE)
-                                            .addComponent(jComboBox13, 0, 102, Short.MAX_VALUE)
-                                            .addComponent(jComboBox11, 0, 102, Short.MAX_VALUE)
-                                            .addComponent(jComboBox9, 0, 102, Short.MAX_VALUE)
-                                            .addComponent(jComboBox7, 0, 102, Short.MAX_VALUE)
+                                            .addComponent(ComboBoxDomingoCierre, 0, 102, Short.MAX_VALUE)
+                                            .addComponent(ComboBoxSabadoCierre, 0, 102, Short.MAX_VALUE)
+                                            .addComponent(ComboBoxViernesCierre, 0, 102, Short.MAX_VALUE)
+                                            .addComponent(ComboBoxJuevesCierre, 0, 102, Short.MAX_VALUE)
+                                            .addComponent(ComboBoxMiercolesCierre, 0, 102, Short.MAX_VALUE)
                                             .addComponent(jLabel10)
-                                            .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jComboBox5, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                            .addComponent(ComboBoxLunesCierre, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(ComboBoxMartesCierre, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(102, 102, 102)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -365,74 +366,73 @@ public class HorarioAtencionMenu extends javax.swing.JFrame {
                             .addComponent(jLabel11))
                         .addGap(14, 14, 14)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(ComboBoxLunesCierre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ComboBoxLunesApertura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(79, 79, 79)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(CheckBoxLunes, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(22, 22, 22)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(22, 22, 22)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jCheckBox2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel3)))))
-                .addGap(18, 18, 18)
+                            .addComponent(ComboBoxMartesCierre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(ComboBoxMartesApertura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel3))
+                            .addComponent(CheckBoxMartes))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 16, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckBox3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
+                            .addComponent(CheckBoxMiercoles, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(ComboBoxMiercolesApertura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel4)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(jCheckBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 18, Short.MAX_VALUE))))
-                    .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(CheckBoxJueves, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(ComboBoxJuevesApertura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel5)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(ComboBoxMiercolesCierre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(ComboBoxJuevesCierre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jComboBox11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ComboBoxViernesCierre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jComboBox13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ComboBoxSabadoCierre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jComboBox16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(ComboBoxDomingoCierre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
-                            .addComponent(jComboBox10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckBox7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(ComboBoxViernesApertura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CheckBoxViernes, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE))
                         .addGap(21, 21, 21)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel7)
-                            .addComponent(jComboBox12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckBox8))
+                            .addComponent(ComboBoxSabadoApertura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CheckBoxSabado))
                         .addGap(15, 15, 15)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(jComboBox14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckBox9))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(CheckBoxDomingo)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel8)
+                                .addComponent(ComboBoxDomingoApertura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(34, 34, 34)
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(botonVolver)
+                    .addComponent(botonContinuar))
                 .addContainerGap())
         );
 
@@ -444,23 +444,23 @@ public class HorarioAtencionMenu extends javax.swing.JFrame {
         boolean establecidas = true; // si alguna hora de apertura o cierre son iguales a 000 se bloquea el boton de continuar
         // por lo que no se puede guardar 
         int[] horasApertura = { // creamos un array para acceder a los valores de apertura 
-            Integer.parseInt(jComboBox1.getSelectedItem().toString()), // es un trainweck un poco confuso pero es necesario pasarlo a string para que selected item lo agarre
-            Integer.parseInt(jComboBox4.getSelectedItem().toString()), // y despues se pasa a un integer para guardarlo 
-            Integer.parseInt(jComboBox6.getSelectedItem().toString()), // creo que puede haber una mejor manera la verdad 
-            Integer.parseInt(jComboBox8.getSelectedItem().toString()), 
-            Integer.parseInt(jComboBox10.getSelectedItem().toString()),
-            Integer.parseInt(jComboBox12.getSelectedItem().toString()),
-            Integer.parseInt(jComboBox14.getSelectedItem().toString()),
+            Integer.parseInt(ComboBoxLunesApertura.getSelectedItem().toString()), // es un trainweck un poco confuso pero es necesario pasarlo a string para que selected item lo agarre
+            Integer.parseInt(ComboBoxMartesApertura.getSelectedItem().toString()), // y despues se pasa a un integer para guardarlo 
+            Integer.parseInt(ComboBoxMiercolesApertura.getSelectedItem().toString()), // creo que puede haber una mejor manera la verdad 
+            Integer.parseInt(ComboBoxJuevesApertura.getSelectedItem().toString()), 
+            Integer.parseInt(ComboBoxViernesApertura.getSelectedItem().toString()),
+            Integer.parseInt(ComboBoxSabadoApertura.getSelectedItem().toString()),
+            Integer.parseInt(ComboBoxDomingoApertura.getSelectedItem().toString()),
             
         };
         int [] horasCierre = {
-            Integer.parseInt(jComboBox3.getSelectedItem().toString()),
-            Integer.parseInt(jComboBox5.getSelectedItem().toString()),
-            Integer.parseInt(jComboBox7.getSelectedItem().toString()),
-            Integer.parseInt(jComboBox9.getSelectedItem().toString()),
-            Integer.parseInt(jComboBox11.getSelectedItem().toString()),
-            Integer.parseInt(jComboBox13.getSelectedItem().toString()),
-            Integer.parseInt(jComboBox16.getSelectedItem().toString()),
+            Integer.parseInt(ComboBoxLunesCierre.getSelectedItem().toString()),
+            Integer.parseInt(ComboBoxMartesCierre.getSelectedItem().toString()),
+            Integer.parseInt(ComboBoxMiercolesCierre.getSelectedItem().toString()),
+            Integer.parseInt(ComboBoxJuevesCierre.getSelectedItem().toString()),
+            Integer.parseInt(ComboBoxViernesCierre.getSelectedItem().toString()),
+            Integer.parseInt(ComboBoxSabadoCierre.getSelectedItem().toString()),
+            Integer.parseInt(ComboBoxDomingoCierre.getSelectedItem().toString()),
             
             
         };        
@@ -496,21 +496,28 @@ public class HorarioAtencionMenu extends javax.swing.JFrame {
             }
         }
         if (hayUnDiaActivo){
-            jButton2.setEnabled(verificarHoras()); // con los dias activos se implementan las condiciones establecidas dentro del metodo verificarhoras
+            botonContinuar.setEnabled(verificarHoras()); // con los dias activos se implementan las condiciones establecidas dentro del metodo verificarhoras
         }
         else{
-            jButton2.setEnabled(false);
+            botonContinuar.setEnabled(false);
         }
     }
     
     private void actualizarDatos(){
-        horario.establecerHorario(DayOfWeek.MONDAY, Integer.parseInt(jComboBox1.getSelectedItem().toString()), Integer.parseInt(jComboBox3.getSelectedItem().toString()));
-        horario.establecerHorario(DayOfWeek.TUESDAY, Integer.parseInt(jComboBox4.getSelectedItem().toString()), Integer.parseInt(jComboBox5.getSelectedItem().toString()));
-        horario.establecerHorario(DayOfWeek.WEDNESDAY, Integer.parseInt(jComboBox6.getSelectedItem().toString()), Integer.parseInt(jComboBox7.getSelectedItem().toString()));
-        horario.establecerHorario(DayOfWeek.THURSDAY, Integer.parseInt(jComboBox8.getSelectedItem().toString()), Integer.parseInt(jComboBox9.getSelectedItem().toString()));
-        horario.establecerHorario(DayOfWeek.FRIDAY, Integer.parseInt(jComboBox10.getSelectedItem().toString()), Integer.parseInt(jComboBox11.getSelectedItem().toString()));
-        horario.establecerHorario(DayOfWeek.SATURDAY, Integer.parseInt(jComboBox12.getSelectedItem().toString()), Integer.parseInt(jComboBox13.getSelectedItem().toString()));
-        horario.establecerHorario(DayOfWeek.SUNDAY, Integer.parseInt(jComboBox14.getSelectedItem().toString()), Integer.parseInt(jComboBox16.getSelectedItem().toString()));
+        Barbero barbero = new Barbero();
+        
+        String lunesAperturaString = ComboBoxLunesApertura.getSelectedItem().toString();
+        String lunesCierreString = ComboBoxLunesCierre.getSelectedItem().toString();
+        int lunesApertura = Integer.parseInt(lunesAperturaString);
+        int lunesCierre = Integer.parseInt(lunesCierreString);
+        
+        barbero.establecerHorario(DayOfWeek.MONDAY, lunesApertura, lunesCierre);
+        barbero.establecerHorario(DayOfWeek.TUESDAY, Integer.parseInt(ComboBoxMartesApertura.getSelectedItem().toString()), Integer.parseInt(ComboBoxMartesCierre.getSelectedItem().toString()));
+        barbero.establecerHorario(DayOfWeek.WEDNESDAY, Integer.parseInt(ComboBoxMiercolesApertura.getSelectedItem().toString()), Integer.parseInt(ComboBoxMiercolesCierre.getSelectedItem().toString()));
+        barbero.establecerHorario(DayOfWeek.THURSDAY, Integer.parseInt(ComboBoxJuevesApertura.getSelectedItem().toString()), Integer.parseInt(ComboBoxJuevesCierre.getSelectedItem().toString()));
+        barbero.establecerHorario(DayOfWeek.FRIDAY, Integer.parseInt(ComboBoxViernesApertura.getSelectedItem().toString()), Integer.parseInt(ComboBoxViernesCierre.getSelectedItem().toString()));
+        barbero.establecerHorario(DayOfWeek.SATURDAY, Integer.parseInt(ComboBoxSabadoApertura.getSelectedItem().toString()), Integer.parseInt(ComboBoxSabadoCierre.getSelectedItem().toString()));
+        barbero.establecerHorario(DayOfWeek.SUNDAY, Integer.parseInt(ComboBoxDomingoApertura.getSelectedItem().toString()), Integer.parseInt(ComboBoxDomingoCierre.getSelectedItem().toString()));
         
         //System.out.println(horario.horarioSemanal); 
         // aqui cada vez que se da continuar se ejecuta actualizar datos y se imprime en la terminal para ver si se guardan bien 
@@ -518,215 +525,215 @@ public class HorarioAtencionMenu extends javax.swing.JFrame {
     
   
     
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void botonVolverActionPerformed(java.awt.event.ActionEvent evt) {                                            
         // boton de volver
         this.setVisible(false);
         barberoMenu.setVisible(true);
-    }                                        
+    }                                           
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void botonContinuarActionPerformed(java.awt.event.ActionEvent evt) {                                               
         //boton continuar
         actualizarDatos(); // al darle continuar los datos seleccionados se guardan
         
         barberoMenu.habilitarBotonCita(); //al crear el horario, ya se pueden crear citas
         this.setVisible(false);
         barberoMenu.setVisible(true); // volvemos al menu principal
-    }                                        
+    }                                              
     // ASIGNAR LOS VALORES PARA CADA DIA DE LA SEMANA DESPUES DE ESCOGERLOS
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {                                           
+    private void ComboBoxLunesAperturaActionPerformed(java.awt.event.ActionEvent evt) {                                                      
         //apertura lunes
         habilitarContinuar();
-    }                                          
+    }                                                     
 
-    private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {                                           
+    private void ComboBoxLunesCierreActionPerformed(java.awt.event.ActionEvent evt) {                                                    
         //cierre lunes
         habilitarContinuar();
-    }                                          
+    }                                                   
 
-    private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {                                           
+    private void ComboBoxMartesAperturaActionPerformed(java.awt.event.ActionEvent evt) {                                                       
         //apertura martes
         habilitarContinuar();
-    }                                          
+    }                                                      
 
-    private void jComboBox5ActionPerformed(java.awt.event.ActionEvent evt) {                                           
+    private void ComboBoxMartesCierreActionPerformed(java.awt.event.ActionEvent evt) {                                                     
         //cierre martes
         habilitarContinuar();
-    }                                          
+    }                                                    
 
-    private void jComboBox6ActionPerformed(java.awt.event.ActionEvent evt) {                                           
+    private void ComboBoxMiercolesAperturaActionPerformed(java.awt.event.ActionEvent evt) {                                                          
         //apertura miercoles
         habilitarContinuar();
-    }                                          
+    }                                                         
 
-    private void jComboBox7ActionPerformed(java.awt.event.ActionEvent evt) {                                           
+    private void ComboBoxMiercolesCierreActionPerformed(java.awt.event.ActionEvent evt) {                                                        
         //cierre miercoles
         habilitarContinuar();
-    }                                          
+    }                                                       
 
-    private void jComboBox8ActionPerformed(java.awt.event.ActionEvent evt) {                                           
+    private void ComboBoxJuevesAperturaActionPerformed(java.awt.event.ActionEvent evt) {                                                       
         //apertura jueves
         habilitarContinuar();
-    }                                          
+    }                                                      
 
-    private void jComboBox9ActionPerformed(java.awt.event.ActionEvent evt) {                                           
+    private void ComboBoxJuevesCierreActionPerformed(java.awt.event.ActionEvent evt) {                                                     
         //cierre jueves
         habilitarContinuar();
-    }                                          
+    }                                                    
 
-    private void jComboBox10ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+    private void ComboBoxViernesAperturaActionPerformed(java.awt.event.ActionEvent evt) {                                                        
         //apertura viernes
         habilitarContinuar();
-    }                                           
+    }                                                       
 
-    private void jComboBox11ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+    private void ComboBoxViernesCierreActionPerformed(java.awt.event.ActionEvent evt) {                                                      
         //cierre viernes
         habilitarContinuar();
-    }                                           
+    }                                                     
 
-    private void jComboBox12ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+    private void ComboBoxSabadoAperturaActionPerformed(java.awt.event.ActionEvent evt) {                                                       
         //apertura sabado
         habilitarContinuar();
-    }                                           
+    }                                                      
 
-    private void jComboBox13ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+    private void ComboBoxSabadoCierreActionPerformed(java.awt.event.ActionEvent evt) {                                                     
         //cierre sabado
         habilitarContinuar();
-    }                                           
+    }                                                    
 
-    private void jComboBox14ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+    private void ComboBoxDomingoAperturaActionPerformed(java.awt.event.ActionEvent evt) {                                                        
         //apertura domingo
         habilitarContinuar();
-    }                                           
+    }                                                       
 
     private void jComboBox15ActionPerformed(java.awt.event.ActionEvent evt) {                                            
         //no se como borrar este, sobra
     }                                           
 
-    private void jComboBox16ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+    private void ComboBoxDomingoCierreActionPerformed(java.awt.event.ActionEvent evt) {                                                      
         //cierre domingo
         habilitarContinuar();
-    }                                           
+    }                                                     
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {                                           
+    private void CheckBoxLunesActionPerformed(java.awt.event.ActionEvent evt) {                                              
         //checkbox lunes
-        if (jCheckBox1.isSelected()){
-            jComboBox1.setEnabled(true);
-            jComboBox3.setEnabled(true);
+        if (CheckBoxLunes.isSelected()){
+            ComboBoxLunesApertura.setEnabled(true);
+            ComboBoxLunesCierre.setEnabled(true);
             }
         else{
-            jComboBox1.setEnabled(false);
-            jComboBox3.setEnabled(false);
+            ComboBoxLunesApertura.setEnabled(false);
+            ComboBoxLunesCierre.setEnabled(false);
         }
         habilitarContinuar();
-    }                                          
+    }                                             
 
-    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {                                           
+    private void CheckBoxMartesActionPerformed(java.awt.event.ActionEvent evt) {                                               
         //checkbox martes
-        if (jCheckBox2.isSelected()){
-            jComboBox4.setEnabled(true);
-            jComboBox5.setEnabled(true);
+        if (CheckBoxMartes.isSelected()){
+            ComboBoxMartesApertura.setEnabled(true);
+            ComboBoxMartesCierre.setEnabled(true);
             }
         else{
-            jComboBox4.setEnabled(false);
-            jComboBox5.setEnabled(false);
+            ComboBoxMartesApertura.setEnabled(false);
+            ComboBoxMartesCierre.setEnabled(false);
         }
         habilitarContinuar();          
-    }                                          
+    }                                              
 
-    private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {                                           
+    private void CheckBoxMiercolesActionPerformed(java.awt.event.ActionEvent evt) {                                                  
         //checkbox miercoles
-        if (jCheckBox3.isSelected()){
-            jComboBox6.setEnabled(true);
-            jComboBox7.setEnabled(true);
+        if (CheckBoxMiercoles.isSelected()){
+            ComboBoxMiercolesApertura.setEnabled(true);
+            ComboBoxMiercolesCierre.setEnabled(true);
             }
         else{
-            jComboBox6.setEnabled(false);
-            jComboBox7.setEnabled(false);
+            ComboBoxMiercolesApertura.setEnabled(false);
+            ComboBoxMiercolesCierre.setEnabled(false);
         }
         habilitarContinuar();       
-    }                                          
+    }                                                 
 
-    private void jCheckBox5ActionPerformed(java.awt.event.ActionEvent evt) {                                           
+    private void CheckBoxJuevesActionPerformed(java.awt.event.ActionEvent evt) {                                               
         //checkbox jueves
-         if (jCheckBox5.isSelected()){
-            jComboBox8.setEnabled(true);
-            jComboBox9.setEnabled(true);
+         if (CheckBoxJueves.isSelected()){
+            ComboBoxJuevesApertura.setEnabled(true);
+            ComboBoxJuevesCierre.setEnabled(true);
             }
         else{
-            jComboBox8.setEnabled(false);
-            jComboBox9.setEnabled(false);
+            ComboBoxJuevesApertura.setEnabled(false);
+            ComboBoxJuevesCierre.setEnabled(false);
         }
         habilitarContinuar();   
-    }                                          
+    }                                              
 
-    private void jCheckBox7ActionPerformed(java.awt.event.ActionEvent evt) {                                           
+    private void CheckBoxViernesActionPerformed(java.awt.event.ActionEvent evt) {                                                
         //checkbox viernes
-        if (jCheckBox7.isSelected()){
-            jComboBox10.setEnabled(true);
-            jComboBox11.setEnabled(true);
+        if (CheckBoxViernes.isSelected()){
+            ComboBoxViernesApertura.setEnabled(true);
+            ComboBoxViernesCierre.setEnabled(true);
             }
         else{
-            jComboBox10.setEnabled(false);
-            jComboBox11.setEnabled(false);
+            ComboBoxViernesApertura.setEnabled(false);
+            ComboBoxViernesCierre.setEnabled(false);
         }
         habilitarContinuar();   
-    }                                          
+    }                                               
 
-    private void jCheckBox9ActionPerformed(java.awt.event.ActionEvent evt) {                                           
+    private void CheckBoxDomingoActionPerformed(java.awt.event.ActionEvent evt) {                                                
         //checkbox domingo
-        if (jCheckBox9.isSelected()){
-            jComboBox14.setEnabled(true);
-            jComboBox16.setEnabled(true);
+        if (CheckBoxDomingo.isSelected()){
+            ComboBoxDomingoApertura.setEnabled(true);
+            ComboBoxDomingoCierre.setEnabled(true);
             }
         else{
-            jComboBox14.setEnabled(false);
-            jComboBox16.setEnabled(false);
+            ComboBoxDomingoApertura.setEnabled(false);
+            ComboBoxDomingoCierre.setEnabled(false);
         }
         habilitarContinuar();   
-    }                                          
+    }                                               
 
-    private void jCheckBox8ActionPerformed(java.awt.event.ActionEvent evt) {                                           
+    private void CheckBoxSabadoActionPerformed(java.awt.event.ActionEvent evt) {                                               
         //checkbox sabado
-        if (jCheckBox8.isSelected()){
-            jComboBox12.setEnabled(true);
-            jComboBox13.setEnabled(true);
+        if (CheckBoxSabado.isSelected()){
+            ComboBoxSabadoApertura.setEnabled(true);
+            ComboBoxSabadoCierre.setEnabled(true);
             }
         else{
-            jComboBox12.setEnabled(false);
-            jComboBox13.setEnabled(false);
+            ComboBoxSabadoApertura.setEnabled(false);
+            ComboBoxSabadoCierre.setEnabled(false);
         }
         habilitarContinuar();   
-    }                                          
+    }                                              
 
     
 
     // Variables declaration - do not modify                     
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
+    private javax.swing.JCheckBox CheckBoxDomingo;
+    private javax.swing.JCheckBox CheckBoxJueves;
+    private javax.swing.JCheckBox CheckBoxLunes;
+    private javax.swing.JCheckBox CheckBoxMartes;
+    private javax.swing.JCheckBox CheckBoxMiercoles;
+    private javax.swing.JCheckBox CheckBoxSabado;
+    private javax.swing.JCheckBox CheckBoxViernes;
+    private javax.swing.JComboBox<String> ComboBoxDomingoApertura;
+    private javax.swing.JComboBox<String> ComboBoxDomingoCierre;
+    private javax.swing.JComboBox<String> ComboBoxJuevesApertura;
+    private javax.swing.JComboBox<String> ComboBoxJuevesCierre;
+    private javax.swing.JComboBox<String> ComboBoxLunesApertura;
+    private javax.swing.JComboBox<String> ComboBoxLunesCierre;
+    private javax.swing.JComboBox<String> ComboBoxMartesApertura;
+    private javax.swing.JComboBox<String> ComboBoxMartesCierre;
+    private javax.swing.JComboBox<String> ComboBoxMiercolesApertura;
+    private javax.swing.JComboBox<String> ComboBoxMiercolesCierre;
+    private javax.swing.JComboBox<String> ComboBoxSabadoApertura;
+    private javax.swing.JComboBox<String> ComboBoxSabadoCierre;
+    private javax.swing.JComboBox<String> ComboBoxViernesApertura;
+    private javax.swing.JComboBox<String> ComboBoxViernesCierre;
+    private javax.swing.JButton botonContinuar;
+    private javax.swing.JButton botonVolver;
     private javax.swing.JCheckBox jCheckBox4;
-    private javax.swing.JCheckBox jCheckBox5;
     private javax.swing.JCheckBox jCheckBox6;
-    private javax.swing.JCheckBox jCheckBox7;
-    private javax.swing.JCheckBox jCheckBox8;
-    private javax.swing.JCheckBox jCheckBox9;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox10;
-    private javax.swing.JComboBox<String> jComboBox11;
-    private javax.swing.JComboBox<String> jComboBox12;
-    private javax.swing.JComboBox<String> jComboBox13;
-    private javax.swing.JComboBox<String> jComboBox14;
     private javax.swing.JComboBox<String> jComboBox15;
-    private javax.swing.JComboBox<String> jComboBox16;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
-    private javax.swing.JComboBox<String> jComboBox5;
-    private javax.swing.JComboBox<String> jComboBox6;
-    private javax.swing.JComboBox<String> jComboBox7;
-    private javax.swing.JComboBox<String> jComboBox8;
-    private javax.swing.JComboBox<String> jComboBox9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
