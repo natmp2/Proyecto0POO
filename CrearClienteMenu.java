@@ -155,9 +155,9 @@ public class CrearClienteMenu extends javax.swing.JFrame {
         String email = jTextFieldEmail.getText();
         String telefono = jTextFieldTelefono.getText();
         
-        Cliente nuevoCliente = new Cliente();
-        nuevoCliente.crearCliente(nombre, email, telefono);
-        clientes.add(nuevoCliente);
+        Barbero barbero = new Barbero();
+        Cliente nuevoCliente = barbero.crearCliente(nombre, email, telefono);
+        clientesMenu.agregarCliente(nuevoCliente);
         // se crea el nuevo cliente en la lista de clientes que despues se utiliza en la ventana de mostrar clientes 
     }                                          
 
