@@ -78,28 +78,29 @@ public class Barbero implements Serializable {
         return hora >= horaApertura && hora <= horaCierre;
     }
     
-    public void crearCita(LocalDate fecha, int hora, Servicio servicio, boolean confirmacion, Cliente cliente){
+    public Cita crearCita(LocalDate fecha, int hora, Servicio servicio, boolean confirmacion, Cliente cliente){
         HorarioAtencion.HorarioDiario horarioDiario = horarioSemanal.get(fecha.getDayOfWeek()); 
         // creamos una instancia de horariodiario en horarioatencion para poder sacar las horas de apertura y cierre para los dias de la semana del horario semanal 
         if (!esDiaLaboral(fecha)){
             System.out.println("la fecha ingresada no es parte del horario de atencion");
-            return;
+            return null;
         }
         
         if (!esHoraValida(hora,horarioDiario.getHoraApertura(),horarioDiario.getHoraCierre())){
             System.out.println("la hora ingresada no es parte del horario de atencion");
-            return;
+            return null;
         }
         for (Cita cita : listaCitas){ // no podemos usar el metodo de busqueda de cita si no sabemos el numero de la cita que vamos a crear
             if (cita.getFecha().equals(fecha) && cita.getHora() == hora){
                 System.out.println("la hora ingresada no es parte del horario de atencion");
-                return;
+                return null;
             }
         }
         
         Cita nuevaCita = new Cita(fecha, hora, servicio, false, cliente);
         listaCitas.add(nuevaCita);
         System.out.println("la cita: " + nuevaCita + "con numero: " + nuevaCita.getNumero() + "ha sido creada con exito");
+        return nuevaCita;
     }
    
     
@@ -222,10 +223,11 @@ public class Barbero implements Serializable {
         horario.setHoraCierre(horaCierre);
     }
     
-    public void crearServicio(String nombre) {
+    public Servicio crearServicio(String nombre) {
         Servicio nuevoServicio = new Servicio(nombre);
         listaServicios.add(nuevoServicio);
         System.out.println("Servicio creado exitosamente: " + nuevoServicio + "con el numero: " + nuevoServicio.getNumero());
+        return nuevoServicio;
     }
     
     
